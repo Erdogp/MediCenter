@@ -16,12 +16,14 @@ public class Clinica {
 	private Integer idC;
 	@Column(name = "nombrec", nullable = false, length = 40)
 	private String nombrec;
-	@Column(name = "ubcacion", nullable = false, length = 40)
+	@Column(name = "ubicacion", nullable = false, length = 40)
 	private String ubicacion;
 	@Column(name = "descripcion", nullable = false, length = 40)
 	private String descripcion;
 	@Column(name = "horario", nullable = false, length = 40)
 	private String horario;
+	
+	
 	public Clinica() {
 		super();
 		// TODO Auto-generated constructor stub

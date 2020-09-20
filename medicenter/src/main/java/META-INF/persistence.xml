@@ -5,6 +5,7 @@
 		<class>pe.edu.upc.medicenter.models.entities.Clinica</class>
 		<class>pe.edu.upc.medicenter.models.entities.Distrito</class>
 		<class>pe.edu.upc.medicenter.models.entities.Usuario</class>
+		<class>pe.edu.upc.medicenter.models.entities.Medicamento</class>
 		
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>

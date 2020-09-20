@@ -22,8 +22,7 @@ public class Clinica {
 	private String descripcion;
 	@Column(name = "horario", nullable = false, length = 40)
 	private String horario;
-	
-	
+
 	public Clinica() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      	xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+    	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>MediCenter - Clinicas</title>
+</h:head>
+<h:body>
+    <h2>Registro de  Clinicas</h2>
+    
+    <h:form id="form-clinica">
+		<p:panelGrid id="panel-clinica" columns="4">
+			<p:outputLabel for="input-nombre" value="Nombre Clinica: "/>
+			<p:inputText id="input-nombre" value="#{clinicaView.clinica.nombrec}"/>		
+			<p:outputLabel for="input-ubicacion" value="Ubicacion: "/>
+			<p:inputText id="input-ubicacion" value="#{clinicaView.clinica.ubicacion}"/>
+			<p:outputLabel for="input-descripcion" value="Descripcion: "/>
+			<p:inputText id="input-descripcion" value="#{clinicaView.clinica.descripcion}"/>		
+			<p:outputLabel for="input-horario" value="Horario: "/>
+			<p:inputText id="input-horario" value="#{clinicaView.clinica.horario}"/>	
+		</p:panelGrid>	
+		
+		
+	</h:form>
+     <h2>Lista de Clinicas Registradas</h2>
+    <p:dataTable id="dt-clinica" value="#{clinicaView.clinicas}" var="clinica" 
+    		paginator="true" rows="11" paginatorPosition="bottom" 
+    		selectionMode="simple" rowKey="#{clinica.idC}">
+    	<p:ajax event="rowSelect" listener="#{clinicaView.selectClinica}" />
+	    <p:column headerText="IdC">
+	        <h:outputText value="#{clinica.idC}" />
+	    </p:column>
+	 
+	    <p:column headerText="Nombre">
+	        <h:outputText value="#{clinica.nombrec}" />
+	    </p:column>
+	    <p:column headerText="Ubicacion">
+	        <h:outputText value="#{clinica.ubicacion}" />
+	    </p:column>
+	    <p:column headerText="Descripcion">
+	        <h:outputText value="#{clinica.descripcion}" />
+	    </p:column>
+	    <p:column headerText="Horario">
+	        <h:outputText value="#{clinica.horario}" />
+	    </p:column>
+	</p:dataTable>
+	
+	<p:toolbar>
+		<f:facet name="left">
+			<p:commandButton value="Nuevo" actionListener="#{clinicaView.newClinica()}" 
+				update=":form-clinica" icon="pi pi-file" />
+				
+			<p:commandButton value="Grabar" actionListener="#{clinicaView.saveClinica()}" 
+				update=":form-clinica :dt-clinica" icon="pi pi-save" />	
+				
+			<p:commandButton value="Editar" actionListener="#{clinicaView.editClinica()}" 
+				update=":form-clinica :dt-clinica" />
+			<p:commandButton value="Eliminar" actionListener="#{clinicaView.deleteClinica()}" 
+				update=":form-clinica:input-nombre :dt-clinica" />
+
+		</f:facet>
+	</p:toolbar>
+	
+	
+
+</h:body>
+</html>

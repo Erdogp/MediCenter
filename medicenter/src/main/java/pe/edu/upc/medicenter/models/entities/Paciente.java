@@ -19,7 +19,7 @@ public class Paciente extends Usuario
 	private Date cita;
 	 @ManyToOne// 1
 	 @Column(name = "historialClinico", nullable = false )	
-	 private historialClinico historialClinico;
-	
+	 private Historial_Clinico historialClinico;
+	private Integer lol;
 	
 }

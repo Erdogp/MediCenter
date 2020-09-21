@@ -4,8 +4,13 @@
 		<jta-data-source>java:/MediCenterDS</jta-data-source>
 		<class>pe.edu.upc.medicenter.models.entities.Clinica</class>
 		<class>pe.edu.upc.medicenter.models.entities.Distrito</class>
-		<class>pe.edu.upc.medicenter.models.entities.Usuario</class>
+		<class>pe.edu.upc.medicenter.models.entities.Especialista</class>
 		<class>pe.edu.upc.medicenter.models.entities.Medicamento</class>
+		<class>pe.edu.upc.medicenter.models.entities.Paciente</class>
+		<class>pe.edu.upc.medicenter.models.entities.Usuario</class>
+		
+		
+		
 		
 	<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>

@@ -27,16 +27,11 @@ public class ClinicaView implements Serializable{
 	private Clinica clinica;
 	private Clinica clinicaseleccionada;
 	private Action action;
-	
-	private Distrito distrito;
-	
+
 	
 	@Inject
 	private ClinicaService clinicaService;
-	@Inject
-	private DistritoService distritoService;
-	
-	
+
 	@PostConstruct
 	public void init() {
 		cleanForm();

@@ -1,6 +1,6 @@
 package pe.edu.upc.medicenter.models.entities;
 
-import  java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ public class Especialista extends Usuario
    @ManyToOne //1
    @JoinColumn(name = "especialidad_id")// snake
 	private Especialidad especialidad;
-	private Date fechadecita;
+	//private Date fechadecita;
 	
 	@OneToMany
 	private List<Paciente> pacientes;

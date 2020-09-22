@@ -5,9 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
+//import javax.persistence.ManyToOne;
+ 
 import javax.persistence.Table;
 
 @Entity
@@ -27,9 +27,9 @@ public class Historial_Clinico {
     private String alergia;
 	@Column ( name = "evolucion" , length = 50 , nullable = true)
 	private String evolucion;
-	@OneToOne
-	@JoinColumn( name = "id_persona")
-    private Usuario usuario;
+	
+	/*@OneToOne(mappedBy="h_clinico")
+    private Usuario usuario;*/
 	
 	public Integer getId_historial_clinico() {
 		return id_historial_clinico;
@@ -67,11 +67,6 @@ public class Historial_Clinico {
 	public void setEvolucion(String evolucion) {
 		this.evolucion = evolucion;
 	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+
 
 }

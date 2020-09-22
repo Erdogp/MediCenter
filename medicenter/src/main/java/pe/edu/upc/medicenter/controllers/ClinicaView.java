@@ -11,7 +11,9 @@ import javax.inject.Named;
 import org.primefaces.event.SelectEvent;
 
 import pe.edu.upc.medicenter.models.entities.Clinica;
+import pe.edu.upc.medicenter.models.entities.Distrito;
 import pe.edu.upc.medicenter.services.ClinicaService;
+import pe.edu.upc.medicenter.services.DistritoService;
 import pe.edu.upc.medicenter.utils.Action;
 
 @Named("clinicaView")		// Creando un Beans
@@ -26,8 +28,14 @@ public class ClinicaView implements Serializable{
 	private Clinica clinicaseleccionada;
 	private Action action;
 	
+	private Distrito distrito;
+	
+	
 	@Inject
 	private ClinicaService clinicaService;
+	@Inject
+	private DistritoService distritoService;
+	
 	
 	@PostConstruct
 	public void init() {

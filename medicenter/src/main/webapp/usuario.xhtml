@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      	xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+    	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>MediCenter - Clinicas</title>
+</h:head>
+<h:body>
+	<div align="center"  >
+    <img src="resources/img/logo.jpeg" alt="" height="100" width="300"   />
+     <li id="sidebar-1" ><a href="inicio.xhtml" > Inicio </a></li>
+    
+    <h2>Registro de Usuario</h2>
+    <h:form id="form-usuario">
+		<p:panelGrid id="panel-usuario" columns="2">
+			<p:outputLabel for="input-nombres" value="Nombres: "/>
+			<p:outputLabel for="input-apellidos" value="Apellidos: "/>
+			<p:inputText id="input-nombres" value="#{usuarioView.usuario.nombres}"/>
+			<p:inputText id="input-apellidos" value="#{usuarioView.usuario.apellidos}"/>
+			<p:outputLabel for="input-dni" value="DNI: "/>
+			<p:outputLabel for="input-celular" value="Celular: "/>
+			<p:inputText id="input-dni" value="#{usuarioView.usuario.dni}"/>
+			<p:inputText id="input-celular" value="#{usuarioView.usuario.celular}"/>
+			<p:outputLabel for="input-genero" value="Genero: "/>
+			<p:outputLabel for="input-nacimiento" value="Direccion: "/>
+			<p:inputText id="input-genero" value="#{usuarioView.usuario.genero}"/>
+			<p:inputText id="input-nacimiento" value="#{usuarioView.usuario.direccion}"/>
+			
+		</p:panelGrid>	
+		
+		
+	</h:form>
+	
+	<p:toolbar >
+		<f:facet name="left">
+			<p:commandButton value="Nuevo"  actionListener="#{usuarioView.newUsuario()}" 
+				update=":form-usuario" icon="pi pi-file" />
+				
+			<p:commandButton value="Grabar" actionListener="#{usuarioView.saveUsuario()}" 
+				update=":form-usuario" icon="pi pi-save" />	
+				
+	
+		</f:facet>
+	</p:toolbar>
+	
+	 </div>
+
+
+</h:body>
+</html>

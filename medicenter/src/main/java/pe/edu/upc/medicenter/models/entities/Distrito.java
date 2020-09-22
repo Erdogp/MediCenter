@@ -26,7 +26,7 @@ public class Distrito {
 	
 	@OneToMany(mappedBy = "distrito")		// 1(@OneToMany), 4(mappedBy)
 	private List<Usuario> usuarios;
-
+	
 
 	public Distrito() {
 		usuarios = new ArrayList<>();

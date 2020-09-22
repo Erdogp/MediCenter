@@ -86,7 +86,7 @@ public class UsuarioView implements Serializable {
 		}
 	}
 	
-	public void deleteusuario() {
+	public void deleteUsuario() {
 		if(usuarioseleccionada != null) {
 			try {
 				usuarioService.deleteById(usuarioseleccionada.getIdPersona());

@@ -22,16 +22,16 @@ public class ClinicaView implements Serializable{
 
 	
 	private static final long serialVersionUID = 1L;
-
 	private List<Clinica> clinicas;
 	private Clinica clinica;
 	private Clinica clinicaseleccionada;
 	private Action action;
-
+	private List<Distrito> distritos;
 	
 	@Inject
 	private ClinicaService clinicaService;
-
+	@Inject
+	private DistritoService distritoService;
 	@PostConstruct
 	public void init() {
 		cleanForm();
@@ -42,6 +42,11 @@ public class ClinicaView implements Serializable{
 	public void loadClinicas() {
 		try {
 			this.clinicas = clinicaService.findAll();
+			this.distritos=distritoService.findAll();
+			/*for (Distrito dis: distritoService.findAll())
+			{
+				distritos.add(dis.getNombre());
+			}*/
 		} catch( Exception e ) {
 			e.printStackTrace();
 			System.err.println( e.getMessage() );
@@ -116,6 +121,16 @@ public class ClinicaView implements Serializable{
 	public Clinica getClinica() {
 		return clinica;
 	}
+
+	public List<Distrito> getDistritos() {
+		return distritos;
+	}
+
+	public void setDistritos(List<Distrito> distritos) {
+		this.distritos = distritos;
+	}
+
+
 	
 	
 	

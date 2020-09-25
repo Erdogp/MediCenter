@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,6 +21,10 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idPersona;
 	
+	@OneToOne(mappedBy="usuario")
+	private Paciente paciente;
+	@OneToOne(mappedBy="usuario")
+	private Especialista especialista;
 	@Column(name = "apellidos", length = 40, nullable = false)
 	private String apellidos;
 	
@@ -40,7 +44,7 @@ public class Usuario {
 	@Column(name = "dni", length = 8, nullable = false)
 	private String dni;
 	
-	@Column(name = "fecha_nac", nullable = false)
+	@Column(name = "nacimiento", nullable = false)
 	@Temporal(TemporalType.TIME)
 	private Date nacimiento;	
 	
@@ -50,10 +54,6 @@ public class Usuario {
 	@Column(name = "genero", length = 20, nullable = false)
 	private String genero;
 
-	/*@OneToOne
-	@JoinColumn(name = "FK_historial_clinico")
-	private Historial_Clinico h_clinico;*/
-	
 	public Integer getIdPersona() {
 		return idPersona;
 	}

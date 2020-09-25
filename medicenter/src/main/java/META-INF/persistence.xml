@@ -4,22 +4,22 @@
 		<jta-data-source>java:/MediCenterDS</jta-data-source>
 		<class>pe.edu.upc.medicenter.models.entities.Cita</class>
 		<class>pe.edu.upc.medicenter.models.entities.Clinica</class>
-		<class>pe.edu.upc.medicenter.models.entities.Clinica_Medicamento</class>
 		<class>pe.edu.upc.medicenter.models.entities.Distrito</class>
 		<class>pe.edu.upc.medicenter.models.entities.Especialidad</class>
 		<class>pe.edu.upc.medicenter.models.entities.Especialista</class>
 		<class>pe.edu.upc.medicenter.models.entities.Historial_Clinico</class>
 		<class>pe.edu.upc.medicenter.models.entities.Medicamento</class>
+		<class>pe.edu.upc.medicenter.models.entities.MedicamentosXClinica</class>
 		<class>pe.edu.upc.medicenter.models.entities.Paciente</class>
-		<class>pe.edu.upc.medicenter.models.entities.TipoUsuario</class>
+		<class>pe.edu.upc.medicenter.models.entities.Receta</class>
 		<class>pe.edu.upc.medicenter.models.entities.Usuario</class>
-
+	
 		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
-				value="update" />
+				value="create" />
 		</properties>
 	</persistence-unit>
 

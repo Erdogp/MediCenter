@@ -27,9 +27,12 @@ public class Distrito {
 	@OneToMany(mappedBy = "distrito")		// 1(@OneToMany), 4(mappedBy)
 	private List<Usuario> usuarios;
 	
+	@OneToMany(mappedBy="distrito")
+	private List<Clinica> clinicas;
 
 	public Distrito() {
 		usuarios = new ArrayList<>();
+		clinicas= new ArrayList<>();
 	}
 
 	public Integer getId() {
@@ -64,5 +67,13 @@ public class Distrito {
 		this.usuarios = usuarios;
 	}
 
+	public List<Clinica> getClinicas() {
+		return clinicas;
+	}
 
+	public void setClinicas(List<Clinica> clinicas) {
+		this.clinicas = clinicas;
+	}
+
+	
 }

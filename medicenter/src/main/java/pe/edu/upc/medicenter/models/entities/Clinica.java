@@ -1,11 +1,17 @@
 package pe.edu.upc.medicenter.models.entities;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,53 +24,81 @@ public class Clinica {
 	private String nombrec;
 	@Column(name = "ubicacion", nullable = false, length = 40)
 	private String ubicacion;
-	@Column(name = "descripcion", nullable = false, length = 40)
-	private String descripcion;
+	
+	@ManyToOne
+	@JoinColumn(name="distrito_id")
+	private Distrito distrito;
+	
 	@Column(name = "horario", nullable = false, length = 40)
 	private String horario;
 
+	@OneToMany(mappedBy="clinica")
+	private List<Especialista> especialistas;
+	
+	@OneToMany(mappedBy="clinica")
+	private List<MedicamentosXClinica> medicamentos;
+
 	public Clinica() {
-		super();
-		// TODO Auto-generated constructor stub
+		especialistas= new ArrayList<>();
+		medicamentos= new ArrayList<>();
 	}
-	public Clinica(Integer idC, String nombrec, String ubicacion, String descripcion, String horario) {
-		super();
-		this.idC = idC;
-		this.nombrec = nombrec;
-		this.ubicacion = ubicacion;
-		this.descripcion = descripcion;
-		this.horario = horario;
-	}
+
 	public Integer getIdC() {
 		return idC;
 	}
+
 	public void setIdC(Integer idC) {
 		this.idC = idC;
 	}
+
 	public String getNombrec() {
 		return nombrec;
 	}
+
 	public void setNombrec(String nombrec) {
 		this.nombrec = nombrec;
 	}
+
 	public String getUbicacion() {
 		return ubicacion;
 	}
+
 	public void setUbicacion(String ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	public String getDescripcion() {
-		return descripcion;
+
+	public Distrito getDistrito() {
+		return distrito;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
 	}
+
 	public String getHorario() {
 		return horario;
 	}
+
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
-	
+
+	public List<Especialista> getEspecialistas() {
+		return especialistas;
+	}
+
+	public void setEspecialistas(List<Especialista> especialistas) {
+		this.especialistas = especialistas;
+	}
+
+	public List<MedicamentosXClinica> getMedicamentos() {
+		return medicamentos;
+	}
+
+	public void setMedicamentos(List<MedicamentosXClinica> medicamentos) {
+		this.medicamentos = medicamentos;
+	}
+
+
 	
 }

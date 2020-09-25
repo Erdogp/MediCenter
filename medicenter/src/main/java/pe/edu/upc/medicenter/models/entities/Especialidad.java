@@ -1,10 +1,14 @@
 package pe.edu.upc.medicenter.models.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,14 @@ public class Especialidad {
 	@Column(name = "NombreEspecialidad", length = 20, nullable = false)
 	private String NombreEspecialidad;
 	 
+	@OneToMany(mappedBy="especialidad")
+	private List<Especialista> especialistas;
+	
+	public Especialidad() {
+		especialistas= new ArrayList<>();
+	}
+	
+	
 	public void setId_Especialidad(Integer id_Especialidad) {
 		Id_Especialidad = id_Especialidad;
 	}

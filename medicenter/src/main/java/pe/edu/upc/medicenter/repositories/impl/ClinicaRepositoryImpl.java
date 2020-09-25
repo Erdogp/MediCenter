@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -12,11 +13,15 @@ import javax.persistence.TypedQuery;
 
 import pe.edu.upc.medicenter.models.entities.Clinica;
 import pe.edu.upc.medicenter.repositories.ClinicaRepository;
+import pe.edu.upc.medicenter.services.DistritoService;
 
 public class ClinicaRepositoryImpl implements ClinicaRepository,Serializable{
 
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private DistritoService disService;
 	
 	@PersistenceContext(unitName = "MedicenterPU")
 	private EntityManager em;
@@ -44,9 +49,14 @@ public class ClinicaRepositoryImpl implements ClinicaRepository,Serializable{
 	@Override
 	public List<Clinica> findAll() throws Exception {
 		List<Clinica> clinicas = new ArrayList<Clinica>();
-		String qlString = "SELECT c FROM Clinica c";	// JPQL
+		//String qlString = "SELECT c.idC,c.nombrec,c.ubicacion,c.horario,b.nombre FROM Clinica c join distritos b on b.id=c.distrito_id";	// JPQL
+		String qlString ="select c from Clinica c";
 		TypedQuery<Clinica> query = em.createQuery(qlString, Clinica.class);
 		clinicas = query.getResultList();
+		for (Clinica cli :clinicas)
+		{	
+			cli.setDistrito(disService.findById(cli.getIdC()).get());
+		}
 		return clinicas;
 	}
 

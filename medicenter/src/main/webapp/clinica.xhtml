@@ -19,14 +19,14 @@
 			<p:outputLabel for="input-nombre" value="Nombre Clinica: "/>
 			<p:inputText id="input-nombre" value="#{clinicaView.clinica.nombrec}"/>		
 			<p:outputLabel for="input-ubicacion" value="Ubicacion: "/>
-			<p:inputText id="input-ubicacion" value="#{clinicaView.clinica.ubicacion}"/>
-			<p:outputLabel for="input-descripcion" value="Descripcion: "/>
-			<p:inputText id="input-descripcion" value="#{clinicaView.clinica.descripcion}"/>		
+			<p:inputText id="input-ubicacion" value="#{clinicaView.clinica.ubicacion}"/>	
 			<p:outputLabel for="input-horario" value="Horario: "/>
 			<p:inputText id="input-horario" value="#{clinicaView.clinica.horario}"/>	
+		<h3 style="margin-top: 0">Distritos</h3>
+    <p:orderList value="#{clinicaView.distritos}"  var="Distrito" controlsLocation="none" itemLabel="#{Distrito.nombre}" itemValue="#{Distrito.nombre}" />
+
 		</p:panelGrid>	
-		
-		
+
 	</h:form>
      <h2>Lista de Clinicas Registradas</h2>
     <p:dataTable id="dt-clinica" value="#{clinicaView.clinicas}" var="clinica" 
@@ -40,15 +40,18 @@
 	    <p:column headerText="Nombre">
 	        <h:outputText value="#{clinica.nombrec}" />
 	    </p:column>
-	    <p:column headerText="Ubicacion">
-	        <h:outputText value="#{clinica.ubicacion}" />
-	    </p:column>
-	    <p:column headerText="Descripcion">
-	        <h:outputText value="#{clinica.descripcion}" />
-	    </p:column>
+	   
 	    <p:column headerText="Horario">
 	        <h:outputText value="#{clinica.horario}" />
 	    </p:column>
+	  <p:column headerText="Distrito">
+	        <h:outputText value="#{clinica.distrito.nombre}" />
+	    </p:column>
+	    <p:column headerText="Ubicacion">
+	        <h:outputText value="#{clinica.ubicacion}" />
+	    </p:column>
+
+	
 	</p:dataTable>
 	
 	<p:toolbar>

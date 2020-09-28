@@ -55,7 +55,7 @@ public class ClinicaRepositoryImpl implements ClinicaRepository,Serializable{
 		clinicas = query.getResultList();
 		for (Clinica cli :clinicas)
 		{	
-			cli.setDistrito(disService.findById(cli.getIdC()).get());
+			cli.setDistrito(disService.findById(cli.getDistrito().getId()).get());
 		}
 		return clinicas;
 	}

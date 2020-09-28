@@ -27,7 +27,7 @@ public class ClinicaView implements Serializable{
 	private Clinica clinicaseleccionada;
 	private Action action;
 	private List<Distrito> distritos;
-	
+	private Distrito distritoseleccionado;
 	@Inject
 	private ClinicaService clinicaService;
 	@Inject
@@ -43,10 +43,6 @@ public class ClinicaView implements Serializable{
 		try {
 			this.clinicas = clinicaService.findAll();
 			this.distritos=distritoService.findAll();
-			/*for (Distrito dis: distritoService.findAll())
-			{
-				distritos.add(dis.getNombre());
-			}*/
 		} catch( Exception e ) {
 			e.printStackTrace();
 			System.err.println( e.getMessage() );
@@ -57,21 +53,43 @@ public class ClinicaView implements Serializable{
 	{
 		action=Action.NEW;
 		cleanForm();
+		loadClinicas();
 	}
 	
 	public void cleanForm()
 	{
 		this.clinica= new Clinica();
 		this.clinicaseleccionada=null;
+		this.distritoseleccionado=null;
 	}
 	
 	public void saveClinica() {
 		try {
-			if (action == Action.NEW) {
-				clinicaService.save(this.clinica);
+			if (action == Action.NEW ) {
+				if(distritoseleccionado != null) {
+					try {
+						clinica.setDistrito(distritoseleccionado);
+						clinicaService.save(this.clinica);
+						distritoseleccionado=null;
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						System.err.println( e.getMessage() );
+					}
+				}
 			} 
 			else if (action == Action.EDIT) {
-				clinicaService.update(this.clinica);
+				if(distritoseleccionado != null) {
+					try {
+						clinica.setDistrito(distritoseleccionado);
+						clinicaService.update(this.clinica);
+						distritoseleccionado=null;
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						System.err.println( e.getMessage() );
+					}
+				}
 			}	
 			action = Action.NONE;
 			cleanForm();
@@ -84,6 +102,9 @@ public class ClinicaView implements Serializable{
 	}
 	public void selectClinica(SelectEvent<Clinica> e) {
 		this.clinicaseleccionada = e.getObject();
+	}
+	public void selectDistrito(SelectEvent<Distrito> e) {
+		this.distritoseleccionado=e.getObject();
 	}
 	
 	// Método que se ejecuta cuando hago click en el boton Editar
@@ -131,7 +152,6 @@ public class ClinicaView implements Serializable{
 	}
 
 
-	
 	
 	
 }

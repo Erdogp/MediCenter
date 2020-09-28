@@ -41,6 +41,7 @@ public class Clinica {
 	public Clinica() {
 		especialistas= new ArrayList<>();
 		medicamentos= new ArrayList<>();
+		distrito= new Distrito();
 	}
 
 	public Integer getIdC() {

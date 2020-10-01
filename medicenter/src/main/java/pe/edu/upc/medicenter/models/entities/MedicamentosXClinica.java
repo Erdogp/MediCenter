@@ -33,6 +33,38 @@ public class MedicamentosXClinica {
 	public MedicamentosXClinica() {
 		recetas = new ArrayList<>();
 	}
+
+	public Integer getIdMedClinica() {
+		return idMedClinica;
+	}
+
+	public void setIdMedClinica(Integer idMedClinica) {
+		this.idMedClinica = idMedClinica;
+	}
+
+	public Medicamento getMedicamento() {
+		return medicamento;
+	}
+
+	public void setMedicamento(Medicamento medicamento) {
+		this.medicamento = medicamento;
+	}
+
+	public Clinica getClinica() {
+		return clinica;
+	}
+
+	public void setClinica(Clinica clinica) {
+		this.clinica = clinica;
+	}
+
+	public List<Receta> getRecetas() {
+		return recetas;
+	}
+
+	public void setRecetas(List<Receta> recetas) {
+		this.recetas = recetas;
+	}
 	
 	
 	

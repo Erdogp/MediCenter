@@ -17,7 +17,7 @@ public class Distrito {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer id;
-	
+	//dfsdf
 	@Column(name = "nombre", length = 30, nullable = false)
 	private String nombre;
 	

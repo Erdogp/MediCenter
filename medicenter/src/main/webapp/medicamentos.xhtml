@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      	xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+    	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>MediCenter - Medicamentos</title>
+</h:head>
+<h:body>
+	<div align="center"  >
+    <img src="resources/img/logo.jpeg" alt="" height="100" width="300"   />
+     <li id="sidebar-1" ><a href="inicio.xhtml" > Inicio </a></li>
+     </div>
+    <h2>Registro de Medicamentos</h2>
+    <h:form id="form-medicamentos">
+
+		<p:panelGrid id="panel-medicamento" columns="4">
+			<p:outputLabel for="input-nombre" value="Nombre Medicamento: "/>
+			<p:inputText id="input-nombre" value="#{medicamentoView.medicamento.nombre}"/>		
+			<p:outputLabel for="input-ubicacion" value="Cantidad Stock: "/>
+			<p:inputText id="input-ubicacion" value="#{medicamentoView.medicamento.stock}"/>	
+
+		</p:panelGrid>	
+
+	</h:form>
+     <h2>Lista de Medicamentos Registrados</h2>
+    <p:dataTable id="dt-medicamentos" value="#{medicamentoView.medicamentos}" var="medicamento" 
+    		paginator="true" rows="11" paginatorPosition="bottom" 
+    		selectionMode="single" rowKey="#{medicamento.id}" >
+    	<p:ajax event="rowSelect" listener="#{medicamentoView.selectMedicamento}" />
+	    <p:column headerText="Id">
+	        <h:outputText value="#{medicamento.id}" />
+	    </p:column>
+	 
+	    <p:column headerText="Nombre">
+	        <h:outputText value="#{medicamento.nombre}" />
+	    </p:column>
+	   
+	    <p:column headerText="Stock">
+	        <h:outputText value="#{medicamento.stock}" />
+	    </p:column>
+
+	
+	</p:dataTable>
+	
+	<p:toolbar>
+		<f:facet name="left">
+			<p:commandButton value="Nuevo" actionListener="#{medicamentoView.newMedicamento()}" 
+				update=":form-medicamentos" icon="pi pi-file" />
+				
+			<p:commandButton value="Grabar" actionListener="#{medicamentoView.saveMedicamento()}" 
+				update=":form-medicamentos :dt-medicamentos" icon="pi pi-save" />	
+				
+			<p:commandButton value="Editar" actionListener="#{medicamentoView.editMedicamento()}" 
+				update=":form-medicamentos :dt-medicamentos" />
+			<p:commandButton value="Eliminar" actionListener="#{medicamentoView.deleteMedicamento()}" 
+				update=":dt-medicamentos" />
+
+		</f:facet>
+	</p:toolbar>
+	
+	
+
+
+</h:body>
+</html>

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 
+
+body
+{
+	background: url(https://thumbs.dreamstime.com/z/fondo-moderno-geom%C3%A9trico-abstracto-del-concepto-de-la-medicina-y-ciencia-132520923.jpg);
+}
+
 *{
 	box-sizing: border-box;
 	font-family: 'Noto Sans';
@@ -53,6 +59,7 @@ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://i.imgur.
 	background: #B2BABB;
 	color: white;
 	cursor: default;
+	background: url(https://thumbs.dreamstime.com/z/fondo-moderno-geom%C3%A9trico-abstracto-del-concepto-de-la-medicina-y-ciencia-132520923.jpg);
 }
 }
 
@@ -118,9 +125,11 @@ nav a:hover
 
 .main{
 
-background: white;
+background: url(https://thumbs.dreamstime.com/z/fondo-moderno-geom%C3%A9trico-abstracto-del-concepto-de-la-medicina-y-ciencia-132520923.jpg);
 padding: 80px, 60px;
 
+text-align:center;
+}
 }
 
 body.nav_fixed .nav

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -13,6 +14,7 @@ import pe.edu.upc.medicenter.repositories.His_ClinicoRepository;
 import pe.edu.upc.medicenter.services.Historial_ClinicoService;
 
 @Named
+@ApplicationScoped
 public class Historial_ClinicoServiceImpl implements Historial_ClinicoService, Serializable
 {
     
@@ -52,14 +54,13 @@ public class Historial_ClinicoServiceImpl implements Historial_ClinicoService, S
 		return hisClinicoRepository.findAll();
 	}
 
-	@Transactional
 	@Override
 	public Optional<Historial_Clinico> findById(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		return hisClinicoRepository.findById(id);
 	}
 
-	@Transactional
+
 	@Override
 	public List<Historial_Clinico> findByCita(Integer idCita) throws Exception {
 		// TODO Auto-generated method stub

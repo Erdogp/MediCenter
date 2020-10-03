@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +15,7 @@ import pe.edu.upc.medicenter.models.entities.Historial_Clinico;
 import pe.edu.upc.medicenter.repositories.His_ClinicoRepository;
 
 @Named
-
+@ApplicationScoped
 public class His_ClinicoRepositoryImpl implements His_ClinicoRepository, Serializable{
 
 	/**
